@@ -38,6 +38,11 @@ features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl"]
 git = "https://github.com/embassy-rs/embassy.git"
 rev = "ef01e2e"
 
+[dependencies.embassy-time]
+features = ["defmt", "defmt-timestamp-uptime"]
+git = "https://github.com/embassy-rs/embassy.git"
+rev = "ef01e2e"
+
 [profile.dev]
 codegen-units = 1
 debug = "full"
