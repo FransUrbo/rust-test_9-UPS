@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-defmt = "0.3"
+defmt = "1"
 defmt-rtt = "0.4"
 fixed = "1.23.1"
 fixed-macro = "1.2"
@@ -14,14 +14,19 @@ fixed-macro = "1.2"
 cortex-m = { version = "0.7.6", features = ["inline-asm"] }
 cortex-m-rt = "0.7.0"
 panic-probe = { version = "0.3", features = ["print-defmt"] }
+embedded-hal-async = "1.0.0"
+num-traits = { version = "0.2.19", default-features = false, features = ["libm"] }
+defmt-serial = "0.11.0"
+static_cell = "2.1.0"
+portable-atomic = { version = "1.10.0", features = ["critical-section"] }
 
-[dependencies.pico-ups-hat-b]
-path = "/Users/turbo/src/Mercedes SLK Drive Selector/rust-libs-ups"
+[features]
+round = []
 
-[dependencies.defmt-serial]
-# The released one (v1.0.1) is missing features for new Embassy.
-git = "https://github.com/gauteh/defmt-serial"
-rev = "411ae7fa909b4fd2667885aff687e009b9108190"
+[dependencies.ina219]
+path = "/Users/turbo/Cloud-Drive_turbo@bayour.com/Documents/Cars/Mercedes SLK Drive Selector/ina219"
+#version = "0.2.1"
+features = ["async", "no_transaction", "paranoid", "defmt"]
 
 [dependencies.embassy-embedded-hal]
 features = ["defmt"]
@@ -34,7 +39,7 @@ git = "https://github.com/embassy-rs/embassy.git"
 rev = "ef01e2e"
 
 [dependencies.embassy-rp]
-features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl"]
+features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl", "rp2040"]
 git = "https://github.com/embassy-rs/embassy.git"
 rev = "ef01e2e"
 
